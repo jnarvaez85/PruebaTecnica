@@ -26,7 +26,7 @@ public class BancoClientes implements Serializable {
 //    @Column(name = "cod_cliente", updatable = false, nullable = false)
     private int cod_cartera;
     
-    @Column
+    @NotNull
     private int cod_cliente;
     
     @NotEmpty
