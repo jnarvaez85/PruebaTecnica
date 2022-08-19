@@ -5,12 +5,9 @@
  */
 package com.media.tita.modelo;
 
-import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.io.Serializable;;
+import javax.persistence.*;
+import javax.validation.constraints.*;
 import lombok.Data;
 
 /**
@@ -19,20 +16,25 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Table(name = "clientes")
-public class Clientes implements Serializable {
+@Table(name = "view_clientes_banco")
+public class BancoClientes implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int cod_cliente;
-
+    private int id_banco;
+    
+    @NotEmpty
+    private String nombre_cliente;
+    
     @NotEmpty
     private String documento_cliente;
-
-    private String nombre_cliente;
-            
-    private String apellidos_cliente;
     
+    @NotEmpty
+    private String nombre_banco;
+    
+    @NotNull
+    private int cod_banco;
+
 }
