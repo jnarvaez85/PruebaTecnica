@@ -8,7 +8,6 @@ package com.media.tita.controller;
 import com.media.tita.implement.BancoClientesService;
 import com.media.tita.modelo.BancoClientes;
 import com.media.tita.repository.BancoClientesRepository;
-import com.media.tita.service.BancoClientesServiceImplement;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,9 +40,9 @@ public class ControllerClientes {
     
     
     // Consultar los Bancos Asociados por el numero de documento
-    @RequestMapping("/bancoClientes/{documento}")
+    @GetMapping("/bancoClientes/{documento}")
     public List<BancoClientes> bancoClientes(@PathVariable("documento") String documento) {        
-        return (List<BancoClientes>) bancoClientesRepository.consultarBancoCliente(documento);
+        return (List<BancoClientes>) bancoClientesService.listarBancosPorPersonas(documento);
     }
 
 }

@@ -21,10 +21,16 @@ public class BancoClientesServiceImplement implements BancoClientesService {
 
     @Autowired
     BancoClientesRepository bancoClientesRepository;
+   
 
     @Override
     public List<BancoClientes> listarBancos() {
         return (List<BancoClientes>) bancoClientesRepository.findAll();
+    }
+
+    @Override
+    public List<BancoClientes> listarBancosPorPersonas(String documento) {
+        return (List<BancoClientes>) bancoClientesRepository.consultarBancoCliente(documento);
     }
  
 

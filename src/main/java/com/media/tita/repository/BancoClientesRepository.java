@@ -8,7 +8,9 @@ package com.media.tita.repository;
 import com.media.tita.modelo.BancoClientes;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 /**
  *
@@ -21,7 +23,12 @@ public interface BancoClientesRepository extends JpaRepository<BancoClientes, In
 //    List<BancoClientes>  consultarBancoCliente(String documento_cliente);
     
     
-    @Query(nativeQuery = true, value = "select * from view_clientes_banco where documento_cliente = :documento")  
-    List<BancoClientes>  consultarBancoCliente(String documento);
+  
+    @Query(value = "select * from view_clientes_banco u where u.documento_cliente = :documento",
+            nativeQuery = true
+    )    
+    List<BancoClientes>  consultarBancoCliente(@Param("documento") String documento);    
+    
+    
         
 }

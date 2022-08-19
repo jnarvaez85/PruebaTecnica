@@ -16,8 +16,7 @@ public interface BancoClientesService {
     
     public List<BancoClientes> listarBancos();
     
-    
-    
+    public List<BancoClientes> listarBancosPorPersonas(String documento);
     
     
     

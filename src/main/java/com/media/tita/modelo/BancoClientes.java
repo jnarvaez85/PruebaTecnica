@@ -23,7 +23,11 @@ public class BancoClientes implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_banco;
+//    @Column(name = "cod_cliente", updatable = false, nullable = false)
+    private int cod_cartera;
+    
+    @Column
+    private int cod_cliente;
     
     @NotEmpty
     private String nombre_cliente;
