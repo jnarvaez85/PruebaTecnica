@@ -1,8 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* CHALLENGE BACKEND - PRUEBA TECNICA
+* SISTEMA INTEGRADO DE GESTION
+* Empresa: TITA MEDIA
+* Desarrollador Backend: Jairo Narvaez
+* Fecha: Agosto, 2022
+*/
+
 package com.media.tita.modelo;
 
 import java.io.Serializable;;
@@ -23,7 +26,6 @@ public class BancoClientes implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "cod_cliente", updatable = false, nullable = false)
     private int cod_cartera;
     
     @NotNull

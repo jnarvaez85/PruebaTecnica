@@ -1,15 +1,15 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+* CHALLENGE BACKEND - PRUEBA TECNICA
+* SISTEMA INTEGRADO DE GESTION
+* Empresa: TITA MEDIA
+* Desarrollador Backend: Jairo Narvaez
+* Fecha: Agosto, 2022
+*/
+
 package com.media.tita.modelo;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 

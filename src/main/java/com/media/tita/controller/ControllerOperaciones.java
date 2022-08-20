@@ -1,14 +1,16 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+* CHALLENGE BACKEND - PRUEBA TECNICA
+* SISTEMA INTEGRADO DE GESTION
+* Empresa: TITA MEDIA
+* Desarrollador Backend: Jairo Narvaez
+* Fecha: Agosto, 2022
+*/
+
 package com.media.tita.controller;
 
-import com.media.tita.modelo.Cartera;
 import com.media.tita.repository.CarteraReposity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -35,7 +37,7 @@ public class ControllerOperaciones {
             @PathVariable("cuotaPagada") int cuotaPagada) {        
         
         carteraReposity.pagarCuotaDeuda(codCartera, cuotaPagada);
-        log.info("El valor de la cuota por actualizar es: "+ cuotaPagada);
+        log.info("El número de cuotas por actualizar es: "+ cuotaPagada);
     }
 
 }
