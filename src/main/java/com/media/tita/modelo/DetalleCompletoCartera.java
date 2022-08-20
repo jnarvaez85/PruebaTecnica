@@ -54,6 +54,9 @@ public class DetalleCompletoCartera implements Serializable {
     private int total_cuotas;
     
     @NotNull
+    private int cuota_mensual;
+    
+    @NotNull
     private int abonos;
     
     @NotNull

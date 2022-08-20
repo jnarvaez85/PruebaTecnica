@@ -8,7 +8,6 @@ package com.media.tita.controller;
 import com.media.tita.implement.*;
 import com.media.tita.modelo.*;
 import java.util.List;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,8 +16,7 @@ import org.springframework.web.bind.annotation.*;
  * @author Jairo Narvaez Noel
  */
 @RestController
-@RequestMapping("/prueba")
-@Slf4j
+@RequestMapping("/clientes")
 public class ControllerClientes {
 
     @Autowired
@@ -59,7 +57,7 @@ public class ControllerClientes {
 
     
     // El sistema debe permitir al usuario seleccionar una deuda y mostrar cuánto ha pagado, cuando cuotas debe, cuanto es el dinero total que debe.
-    @GetMapping("/detalleCompletoCartera/{codCartera}")
+    @GetMapping("/detalleCartera/{codCartera}")
     public List<DetalleCompletoCartera> detalleCompletoCartera(@PathVariable("codCartera") int codCartera) {
         return (List<DetalleCompletoCartera>) 
                 detalleCompletoCarteraService.mostrarDetalleCompletoCartera(codCartera);
