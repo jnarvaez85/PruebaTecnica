@@ -4,15 +4,15 @@
  */
 package com.media.tita.implement;
 
-import com.media.tita.modelo.CarteraPendiente;
+import com.media.tita.modelo.Clientes;
 import java.util.List;
 
 /**
  *
  * @author Jairo Narvaez Noel - jaironarvaez8589@gmail.com
  */
-public interface CarteraPendienteService {
+public interface ClientesService {
     
-    public List<CarteraPendiente> mostrarCarteraPendiente(String documento, int codigoBanco);
+     public List<Clientes> listarClientes();
     
 }

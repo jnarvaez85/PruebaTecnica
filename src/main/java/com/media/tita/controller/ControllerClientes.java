@@ -5,9 +5,8 @@
  */
 package com.media.tita.controller;
 
-import com.media.tita.implement.BancoClientesService;
-import com.media.tita.modelo.BancoClientes;
-import com.media.tita.repository.BancoClientesRepository;
+import com.media.tita.implement.*;
+import com.media.tita.modelo.*;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,23 +25,44 @@ public class ControllerClientes {
     private BancoClientesService bancoClientesService;
 
     @Autowired
-    private BancoClientesRepository bancoClientesRepository;
+    private CarteraPendienteService carteraPendienteService;
 
+    @Autowired
+    private DetalleCompletoCarteraService detalleCompletoCarteraService;
+    
+    @Autowired
+    ClientesService clientesService;
     
     
-    // Listar todos los Bancos con sus respectivos clientes asociados
-    @GetMapping("/listarBancos")
-    public List<BancoClientes> listarBancos() {
-        return (List<BancoClientes>) bancoClientesService.listarBancos();
+    
+
+    // Mostramos el listado de todos los clientes
+    @GetMapping("/mostrarClientes")
+    public List<Clientes> mostrarClientes() {
+        return (List<Clientes>) clientesService.listarClientes();
     }
 
+    // Debe permitir al usuario ver el listado de sus bancos
+    @GetMapping("/bancoClientes/{documento}")
+    public List<BancoClientes> bancoClientes(@PathVariable("documento") String documento) {
+        return (List<BancoClientes>) bancoClientesService.listarBancosPorPersonas(documento);
+    }
+
+    // El sistema debe permitir al usuario seleccionar un Banco y mostrar las deudas que posee en ese banco.
+    @GetMapping("/carteraPendiente/{documento}/{codigoBanco}")
+    public List<CarteraPendiente> carteraPendiente(
+            @PathVariable("documento") String documento,
+            @PathVariable("codigoBanco") int codigoBanco
+    ) {
+        return (List<CarteraPendiente>) carteraPendienteService.mostrarCarteraPendiente(documento, codigoBanco);
+    }
 
     
-    
-    // Consultar los Bancos Asociados por el numero de documento
-    @GetMapping("/bancoClientes/{documento}")
-    public List<BancoClientes> bancoClientes(@PathVariable("documento") String documento) {        
-        return (List<BancoClientes>) bancoClientesService.listarBancosPorPersonas(documento);
+    // El sistema debe permitir al usuario seleccionar una deuda y mostrar cuánto ha pagado, cuando cuotas debe, cuanto es el dinero total que debe.
+    @GetMapping("/detalleCompletoCartera/{codCartera}")
+    public List<DetalleCompletoCartera> detalleCompletoCartera(@PathVariable("codCartera") int codCartera) {
+        return (List<DetalleCompletoCartera>) 
+                detalleCompletoCarteraService.mostrarDetalleCompletoCartera(codCartera);
     }
 
 }

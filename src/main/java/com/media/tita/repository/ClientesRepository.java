@@ -2,17 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package com.media.tita.implement;
+package com.media.tita.repository;
 
-import com.media.tita.modelo.CarteraPendiente;
-import java.util.List;
+import com.media.tita.modelo.Clientes;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author Jairo Narvaez Noel - jaironarvaez8589@gmail.com
  */
-public interface CarteraPendienteService {
-    
-    public List<CarteraPendiente> mostrarCarteraPendiente(String documento, int codigoBanco);
+public interface ClientesRepository extends JpaRepository<Clientes, Integer>{
     
 }
